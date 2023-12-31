@@ -15,7 +15,11 @@ html {
 body {
   margin: 0;
   color:${({ theme }) => theme.colors.light};
-  background-color: ${({ theme }) => theme.colors.backLight}
+  background-color: ${({ theme }) => theme.colors.backLight};
+  background-image: url(/background.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 p{
@@ -89,18 +93,6 @@ h2 {
     outline: 0px none transparent;
   }
 
-  .background {
-    margin-top: 50px;
-    height: 200vh;
-    z-index: -1;
-    width: 100%;
-    position: fixed;
-    background-image: url(/background.webp);
-    background-size: contain;
-    background-repeat: no-repeat;
-    opacity: 0.5;
-  }
-
   .pagination{
     margin-bottom: 200px;
     padding: 10px;
@@ -137,7 +129,7 @@ h2 {
   display:none;
   }
 
-  @media (min-width: 410px) {
+  @media (min-width: 450px) {
     .background {
     background-image: url(./backgroundBig.webp);
     background-size: contain;

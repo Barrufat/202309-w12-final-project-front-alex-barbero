@@ -37,6 +37,8 @@ const RecordForm = ({ submitAction, buttonText }: RecordFormProps) => {
   const [newRecord, setNewRecord] =
     useState<RecordStructureWithoutId>(currentRecord);
 
+  const newRecordValues = Object.values(newRecord);
+
   const updateNewRecord = (
     event:
       | React.ChangeEvent<HTMLInputElement>
@@ -46,15 +48,11 @@ const RecordForm = ({ submitAction, buttonText }: RecordFormProps) => {
       ...currentNewRecord,
       [event.target.id]: event.target.value,
     }));
-  };
-
-  useEffect(() => {
-    const newRecordValues = Object.values(newRecord);
 
     newRecordValues.every((value) => value !== "")
       ? setIsButtonDisabled(false)
       : setIsButtonDisabled(true);
-  }, [newRecord]);
+  };
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

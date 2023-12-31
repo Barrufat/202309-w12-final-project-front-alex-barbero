@@ -21,6 +21,9 @@ describe("Given an App component", () => {
 
       server.use(...handlers);
 
+      const inputBandElement = screen.getByLabelText("Band name:");
+      await userEvent.type(inputBandElement, "El cambiasoooo");
+
       const modifyButton = screen.getByRole("button", {
         name: "Modify",
       });
