@@ -1,13 +1,13 @@
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useAppSelector } from "../../store/hooks";
-import { useMemo } from "react";
+import { useEffect } from "react";
 import "./Toast.css";
 
 const Toast = () => {
   const feedBackToast = useAppSelector((state) => state.uiState.feedbackToast);
 
-  useMemo(() => {
+  useEffect(() => {
     if (feedBackToast.type === "success") {
       toast.success(`${feedBackToast.message}`);
     } else if (feedBackToast.type === "error") {
